@@ -1,396 +1,157 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>MyCoin</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BullOneCoin</title>
+
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
 
 body{
-    font-family:Inter,sans-serif;
-    background:#050505;
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:black;
     color:white;
-    overflow-x:hidden;
+    text-align:center;
 }
 
 header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:25px 8%;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-    position:sticky;
-    top:0;
-    background:rgba(0,0,0,0.9);
-    backdrop-filter:blur(10px);
+    padding:40px 20px;
+    background:linear-gradient(to bottom,#111,#000);
 }
 
 .logo{
-    font-family:Orbitron,sans-serif;
-    font-size:28px;
-    color:#ffbf00;
-    font-weight:700;
+    width:220px;
+    border-radius:50%;
+    box-shadow:0 0 30px gold;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 15px;
-    transition:0.3s;
+h1{
+    color:gold;
+    font-size:60px;
+    margin-top:20px;
 }
 
-nav a:hover{
-    color:#ffbf00;
-}
-
-.btn{
-    background:#ffbf00;
-    color:black;
-    padding:14px 28px;
-    border-radius:12px;
-    text-decoration:none;
-    font-weight:700;
-    display:inline-block;
-    transition:0.3s;
-}
-
-.btn:hover{
-    transform:translateY(-3px);
+.subtitle{
+    font-size:24px;
+    color:#ddd;
 }
 
 .hero{
-    min-height:90vh;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:80px 8%;
-    gap:60px;
+    padding:60px 20px;
+    background:url('https://images.unsplash.com/photo-1639762681057-408e52192e55?q=80&w=2070&auto=format&fit=crop') center/cover;
 }
 
-.hero-text{
-    max-width:600px;
+.hero h2{
+    font-size:50px;
+    color:gold;
 }
 
-.hero-text h1{
-    font-size:72px;
-    line-height:1.1;
-    margin-bottom:20px;
+.hero p{
+    font-size:22px;
+    max-width:700px;
+    margin:auto;
+    line-height:1.6;
 }
 
-.hero-text h1 span{
-    color:#ffbf00;
-}
-
-.hero-text p{
-    color:#cccccc;
-    font-size:20px;
-    line-height:1.7;
-    margin-bottom:35px;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.secondary-btn{
-    border:2px solid #ffbf00;
-    color:#ffbf00;
-    background:transparent;
-}
-
-.coin{
-    width:420px;
-    height:420px;
-    border-radius:50%;
-    background:radial-gradient(circle,#ffdd55,#ffbf00,#7a5200);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:120px;
-    font-weight:bold;
+.button{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 35px;
+    background:gold;
     color:black;
-    box-shadow:0 0 60px rgba(255,191,0,0.5);
-    animation:float 4s ease-in-out infinite;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:10px;
+    transition:0.3s;
 }
 
-@keyframes float{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-20px);}
+.button:hover{
+    background:white;
 }
 
-.section{
-    padding:100px 8%;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:60px;
-}
-
-.section-title h2{
-    font-size:48px;
-    margin-bottom:15px;
-}
-
-.section-title p{
-    color:#b0b0b0;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+.features{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
     gap:30px;
+    padding:60px 20px;
 }
 
 .card{
-    background:#111111;
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:20px;
-    padding:35px;
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-    border-color:#ffbf00;
+    background:#111;
+    border:1px solid gold;
+    border-radius:15px;
+    width:280px;
+    padding:30px;
+    box-shadow:0 0 15px rgba(255,215,0,0.3);
 }
 
 .card h3{
-    color:#ffbf00;
-    margin-bottom:15px;
-    font-size:24px;
-}
-
-.tokenomics{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
-}
-
-.token-box{
-    background:#111111;
-    padding:40px;
-    border-radius:20px;
-}
-
-.token-list{
-    list-style:none;
-}
-
-.token-list li{
-    margin-bottom:18px;
-    display:flex;
-    justify-content:space-between;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-    padding-bottom:10px;
-}
-
-.roadmap{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:25px;
-}
-
-.roadmap-step{
-    background:#111111;
-    padding:30px;
-    border-radius:20px;
-    border-top:4px solid #ffbf00;
+    color:gold;
 }
 
 footer{
-    background:#080808;
-    padding:50px 8%;
-    text-align:center;
-    border-top:1px solid rgba(255,255,255,0.08);
+    padding:30px;
+    background:#111;
+    color:#999;
 }
 
-footer p{
-    color:#888888;
-}
-
-@media(max-width:900px){
-
-.hero{
-    flex-direction:column;
-    text-align:center;
-}
-
-.hero-text h1{
-    font-size:48px;
-}
-
-.coin{
-    width:280px;
-    height:280px;
-    font-size:80px;
-}
-
-.tokenomics{
-    grid-template-columns:1fr;
-}
-
-header{
-    flex-direction:column;
-    gap:20px;
-}
-
-nav{
-    text-align:center;
-}
-
-}
 </style>
 </head>
+
 <body>
 
 <header>
-    <div class="logo">MYCOIN</div>
-
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Tokenomics</a>
-        <a href="#">Roadmap</a>
-        <a href="#">Community</a>
-        <a href="#">Whitepaper</a>
-    </nav>
-
-    <a href="#" class="btn">Buy Now</a>
+    <img src="logo.png" class="logo">
+    <h1>BULLONECOIN</h1>
+    <p class="subtitle">
+        Strong Community. Global Future.
+    </p>
 </header>
 
 <section class="hero">
-    <div class="hero-text">
-        <h1>THE FUTURE OF <span>MYCOIN</span></h1>
+    <h2>INVEST. HOLD. GROW.</h2>
 
-        <p>
-            MyCoin ist ein modernes Community-Krypto-Projekt mit Fokus auf
-            Wachstum, Sicherheit und langfristige Vision.
-        </p>
+    <p>
+        BullOneCoin verbindet moderne Technologie,
+        starke Community und globale Vision.
+        Die Zukunft beginnt jetzt.
+    </p>
 
-        <div class="hero-buttons">
-            <a href="#" class="btn">Jetzt kaufen</a>
-            <a href="#" class="btn secondary-btn">Chart ansehen</a>
-        </div>
-    </div>
-
-    <div class="coin">M</div>
+    <a href="#" class="button">
+        JOIN THE COMMUNITY
+    </a>
 </section>
 
-<section class="section">
-    <div class="section-title">
-        <h2>Warum MyCoin?</h2>
-        <p>Die wichtigsten Vorteile deines Coins.</p>
-    </div>
+<section class="features">
 
-    <div class="cards">
+<div class="card">
+    <h3>Strong Community</h3>
+    <p>
+        Gemeinsam wachsen wir weltweit.
+    </p>
+</div>
 
-        <div class="card">
-            <h3>Community First</h3>
-            <p>
-                Das Projekt wird gemeinsam mit der Community aufgebaut.
-            </p>
-        </div>
+<div class="card">
+    <h3>Secure System</h3>
+    <p>
+        Modernes und sicheres Coin-Konzept.
+    </p>
+</div>
 
-        <div class="card">
-            <h3>Sicher</h3>
-            <p>
-                Transparenter Smart Contract und sichere Infrastruktur.
-            </p>
-        </div>
+<div class="card">
+    <h3>Global Vision</h3>
+    <p>
+        Eine Community für die Zukunft.
+    </p>
+</div>
 
-        <div class="card">
-            <h3>Schnell</h3>
-            <p>
-                Optimiert für schnelle und günstige Transaktionen.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Skalierbar</h3>
-            <p>
-                Entwickelt für zukünftiges Wachstum und neue Funktionen.
-            </p>
-        </div>
-
-    </div>
-</section>
-
-<section class="section">
-    <div class="section-title">
-        <h2>Tokenomics</h2>
-        <p>Verteilung des gesamten Token-Angebots.</p>
-    </div>
-
-    <div class="tokenomics">
-
-        <div class="token-box">
-            <ul class="token-list">
-                <li><span>Liquidity</span><span>40%</span></li>
-                <li><span>Marketing</span><span>20%</span></li>
-                <li><span>Development</span><span>15%</span></li>
-                <li><span>Team</span><span>10%</span></li>
-                <li><span>Rewards</span><span>10%</span></li>
-                <li><span>Airdrop</span><span>5%</span></li>
-            </ul>
-        </div>
-
-        <div class="token-box">
-            <h3 style="color:#ffbf00;margin-bottom:20px;">Gesamt Supply</h3>
-            <h2 style="font-size:50px;">1,000,000</h2>
-            <p style="margin-top:20px;color:#aaaaaa;">
-                Langfristiges und stabiles Token-Modell für nachhaltiges Wachstum.
-            </p>
-        </div>
-
-    </div>
-</section>
-
-<section class="section">
-    <div class="section-title">
-        <h2>Roadmap</h2>
-        <p>Die Zukunft des Projekts.</p>
-    </div>
-
-    <div class="roadmap">
-
-        <div class="roadmap-step">
-            <h3>Q1</h3>
-            <p>Website Launch + Community Aufbau</p>
-        </div>
-
-        <div class="roadmap-step">
-            <h3>Q2</h3>
-            <p>DEX Listing + Marketing Kampagnen</p>
-        </div>
-
-        <div class="roadmap-step">
-            <h3>Q3</h3>
-            <p>CoinGecko & CoinMarketCap Listing</p>
-        </div>
-
-        <div class="roadmap-step">
-            <h3>Q4</h3>
-            <p>Partnerschaften & globale Expansion</p>
-        </div>
-
-    </div>
 </section>
 
 <footer>
-    <h2 style="margin-bottom:15px;color:#ffbf00;">MYCOIN</h2>
-
-    <p>
-        © 2026 MyCoin. Alle Rechte vorbehalten.
-    </p>
+    © 2026 BullOneCoin — All Rights Reserved
 </footer>
 
 </body>
